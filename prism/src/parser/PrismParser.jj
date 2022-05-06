@@ -430,6 +430,7 @@ TOKEN :
 |	< CLOCK:			"clock" >
 |	< CONST:			"const" >
 |	< CTMC:				"ctmc" >
+|   < CTMDP:            "ctmdp" >
 |	< C:				"C" >
 |	< DOUBLE:			"double" >
 |	< DTMC:				"dtmc" >
@@ -678,6 +679,7 @@ ModelType ModulesFileType() :
 {
 	( (<DTMC>|<PROBABILISTIC>) { modelType=ModelType.DTMC; }
 	| (<MDP>|<NONDETERMINISTIC>) { modelType=ModelType.MDP; }
+	| < CTMDP > {modelType = ModelType.CTMDP;}
 	| (<CTMC>|<STOCHASTIC>) { modelType=ModelType.CTMC; }
 	| <PTA> { modelType=ModelType.PTA; }
 	)
